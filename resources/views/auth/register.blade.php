@@ -33,6 +33,18 @@
                 <p class="text-red-500 text-sm mb-2">{{ $message }}</p>
             @enderror
 
+            <label class="block mb-2 font-medium">Loại tài khoản</label>
+            <select name="account_type"
+                class="w-full p-3 mb-4 border rounded"
+                required>
+                <option value="">-- Chọn loại tài khoản --</option>
+                <option value="form_creator" {{ old('account_type') == 'form_creator' ? 'selected' : '' }}>Tài khoản tạo form</option>
+                <option value="attendance_checker" {{ old('account_type') == 'attendance_checker' ? 'selected' : '' }}>Tài khoản điểm danh</option>
+            </select>
+            @error('account_type')
+                <p class="text-red-500 text-sm mb-2">{{ $message }}</p>
+            @enderror
+
             <label class="block mb-2 font-medium">Mật Khẩu</label>
             <input type="password" name="password"
                 class="w-full p-3 mb-4 border rounded"

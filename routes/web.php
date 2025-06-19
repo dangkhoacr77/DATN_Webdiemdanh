@@ -12,6 +12,13 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotController;
 use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\FormSettingController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminFormController;
+use App\Http\Controllers\Admin\AdminAccountController;
+use App\Http\Controllers\Admin\AdminProfileController;
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +43,6 @@ Route::post('/register', [RegisterController::class, 'register'])
      // Hiển thị form Đăng nhập
 Route::get('/login', [LoginController::class, 'showForm'])
      ->name('login.form');
-
 // Xử lý POST Đăng nhập
 Route::post('/login', [LoginController::class, 'login'])
      ->name('login.post');
@@ -94,9 +100,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
  
  Route::get('/answers', [AnswerController::class, 'index'])->name('answers.index');
  //Form setting
- Route::middleware('auth')->group(function () {
-Route::get('/forms/{form}/settings', [FormSettingController::class, 'edit'])->name('settings.edit');
-Route::put('/forms/{form}/settings', [FormSettingController::class, 'update'])->name('settings.update');
- });
+
+    Route::get('/forms/settings', [FormSettingController::class, 'edit'])->name('settings.edit');
+//     Route::put('/forms/{form}/settings', [FormSettingController::class, 'update'])->name('settings.update');
 
  Route::post('/settings/save', [FormSettingController::class, 'store'])->name('settings.save');
+
+ //Thong ke admin
+ Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+ //Ql bieu mau
+ Route::get('/admin/forms', [AdminFormController::class, 'index'])->name('admin.forms');
+ //Ql tai khoan 
+ Route::get('/admin/accounts', [AdminAccountController::class, 'index'])->name('admin.accounts');
+ //Thong tin ca nhan admin
+ Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin.profile');

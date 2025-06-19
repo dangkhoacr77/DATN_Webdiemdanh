@@ -24,13 +24,13 @@
         <div class="flex flex-1 overflow-hidden">
             <!-- Sidebar -->
             <div class="w-16 bg-white shadow-md flex flex-col items-center py-4 space-y-6">
-                <a href="{{ route('form.create') }}" class="text-gray-700 hover:text-indigo-600 p-2 rounded-full hover:bg-indigo-50" title="Biểu mẫu">
+                <a href="{{ route('forms.create') }}" class="text-gray-700 hover:text-indigo-600 p-2 rounded-full hover:bg-indigo-50" title="Biểu mẫu">
                     <span class="material-icons">view_headline</span>
                 </a>
                 <a href="{{ route('answers.index') }}" class="text-gray-700 hover:text-indigo-600 p-2 rounded-full hover:bg-indigo-50" title="Câu Trả lời">
                     <span class="material-icons">description</span>
                 </a>
-                <a href="{{ route('settings.index') }}" class="text-indigo-600 bg-indigo-50 p-2 rounded-full" title="Cài đặt">
+                <a href="{{ route('settings.edit') }}" class="text-indigo-600 bg-indigo-50 p-2 rounded-full" title="Cài đặt">
                     <span class="material-icons">settings</span>
                 </a>
             </div>

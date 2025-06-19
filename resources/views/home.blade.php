@@ -61,6 +61,8 @@
           @guest
             <a href="{{ route('login.form') }}">Đăng nhập</a>
             <a href="{{ route('register.form') }}">Đăng ký</a>
+            <a href="{{ route('admin.dashboard') }}">Admin</a>
+             <a href="{{ route('login.form') }}">Thông tin người dùng</a>
           @else
             <a href="{{ route('profile') }}">Cài đặt</a>
             <form method="POST" action="{{ route('logout') }}">

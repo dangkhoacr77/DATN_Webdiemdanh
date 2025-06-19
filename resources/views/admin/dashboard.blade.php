@@ -22,7 +22,7 @@
       <div style="text-align: center; font-weight: bold; font-size: 22px; margin-bottom: 40px;">Logo</div>
       <div style="display: flex; flex-direction: column;">
         <div style="padding: 12px 24px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #0047ff; background-color: #eef3ff; font-weight: bold; cursor: pointer;">🏠 Thống kê</div>
-        <div style="padding: 12px 24px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; cursor: pointer;">📄 Biểu mẫu</div>
+        <div onclick="window.location.href='/admin/forms'"style="padding: 12px 24px; display: flex; align-items: center; gap: 10px;font-size: 14px; color: #333; cursor: pointer;">📄 Biểu mẫu</div>
         <div style="padding: 12px 24px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; cursor: pointer;">👤 Tài Khoản</div>
         <div style="padding: 12px 24px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; cursor: pointer;">⚙️ Thông tin cá nhân</div>
       </div>
