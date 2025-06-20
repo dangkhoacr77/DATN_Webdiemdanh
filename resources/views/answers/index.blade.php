@@ -10,21 +10,15 @@
     <div class="flex flex-col min-h-screen">
         <!-- Header -->
         <header class="bg-white shadow-sm py-4 px-6 flex items-center justify-between border-b">
-            <!-- Trái: tiêu đề -->
             <div class="flex items-center space-x-4">
                 <h1 class="text-xl font-medium text-gray-800">Câu Trả Lời</h1>
             </div>
-
-            <!-- Phải: Excel + chữ + tài khoản -->
             <div class="flex items-center space-x-4">
-                <!-- Nút tải Excel -->
-                <form  method="POST">
-                    <button type="submit" class="text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md" title="Lưu dạng Excel">
-                      Lưu vào tài khoản
+                <form method="POST">
+                    <button type="submit" class="text-white bg-green-500 hover:bg-green-600 px-4 py-2 rounded-md">
+                        Lưu vào tài khoản
                     </button>
                 </form>
-
-                <!-- Avatar -->
                 <button class="text-gray-600 hover:text-indigo-600" title="Tài khoản">
                     <span class="material-icons">account_circle</span>
                 </button>
@@ -48,25 +42,26 @@
             <!-- Nội dung chính -->
             <main class="flex-1 overflow-auto p-8">
                 <div class="max-w-4xl mx-auto space-y-6">
-                    <!-- @if (count($answers) === 0)
+                    @if ($diemDanhs->isEmpty())
                         <div class="bg-white p-6 rounded-lg shadow text-gray-500 text-center">
                             Chưa có câu trả lời nào.
                         </div>
-                    @else -->
-                        <!-- @foreach ($answers as $index => $response) -->
+                    @else
+                        @foreach ($diemDanhs as $index => $dd)
                             <div class="bg-white p-6 rounded-lg shadow">
-                                <h2 class="font-semibold text-lg mb-4">Lần trả lời 1<!--{{ $index + 1 }}--></h2>
+                                <h2 class="font-semibold text-lg mb-4">
+                                    Lần trả lời {{ $index + 1 }} - Người trả lời: {{ $dd->taiKhoan->ho_ten ?? 'Không rõ' }}
+                                </h2>
                                 <ul class="space-y-2">
-                                    <!-- @foreach ($response as $question => $answer) -->
+                                    @foreach ($dd->cauTraLoi as $ctl)
                                         <li>
-                                            <!-- <strong>{{ $question }}:</strong> {{ $answer }} -->
-                                             aaaaaaaaaaaa
+                                            <strong>{{ $ctl->cauHoi->cau_hoi }}:</strong> {{ $ctl->cau_tra_loi }}
                                         </li>
-                                    <!-- @endforeach -->
+                                    @endforeach
                                 </ul>
                             </div>
-                        <!-- @endforeach -->
-                    <!-- @endif -->
+                        @endforeach
+                    @endif
                 </div>
             </main>
         </div>
